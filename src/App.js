@@ -50,6 +50,8 @@ TObject = () => {
           value={messageObj.message}
           placeholder="Enter a message"
           onChange={e => {
+//        doesn't work because same object won't trigger a refresh.
+//            messageObj.message = e.target.value; 
             const newMessageObj = { message: e.target.value };
             setMessage(newMessageObj); // Now it works
           }}
