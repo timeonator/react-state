@@ -102,6 +102,29 @@ TObject = () => {
     );
   };
 
+  const SetStateSimulation = () => {
+    const [messageObj, setMessage] = useState({ message: '', id: 1 });
+
+    return (
+      <div>
+        <input
+          type="text"
+          value={messageObj.message}
+          placeholder="Enter a message"
+          onChange={e => {
+            const val = e.target.value;
+            setMessage(prevState => {
+              return { ...prevState, message: val }
+            });
+          }}
+        />
+        <p>
+          <strong>{messageObj.id} : {messageObj.message}</strong>
+        </p>
+    </div>
+    )
+}
+
 function App() {
   return (
     <div className="App">
@@ -112,6 +135,7 @@ function App() {
       <Append />
       <TObject />
       <MessageList />
+      <SetStateSimulation />
     </div>
   );
 }
